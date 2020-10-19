@@ -6,18 +6,25 @@ public class DeleteNode {
         head.next = new ListNode(5);
         head.next.next = new ListNode(1);
         head.next.next.next = new ListNode(9);
-        while(head != null){
-            System.out.println(head.val);
-            head = head.next;
-        }
-        ListNode listNode = new DeleteNode().deleteNode(head, 5);
+        ListNode listNode = new DeleteNode().deleteNode(head, 4);
         while(listNode != null){
-            System.out.println(listNode.val);
+            System.out.print(listNode.val + " ");
             listNode = listNode.next;
         }
     }
     public ListNode deleteNode(ListNode head, int val) {
-        return null;
+        if(head.val == val) return head.next;
+        ListNode pre = head;
+        ListNode now = head.next;
+        while(now != null){
+            if(now.val == val){
+                pre.next = now.next;
+                break;
+            }
+            pre = now;
+            now = now.next;
+        }
+        return head;
     }
 }
 class ListNode {
