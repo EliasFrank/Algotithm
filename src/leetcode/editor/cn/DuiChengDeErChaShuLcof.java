@@ -40,8 +40,6 @@ package leetcode.editor.cn;
 // Related Topics 树 
 // 👍 102 👎 0
 
-
-import com.sun.source.tree.Tree;
 import hl2020_09_25.TreeNode;
 
 public class DuiChengDeErChaShuLcof{

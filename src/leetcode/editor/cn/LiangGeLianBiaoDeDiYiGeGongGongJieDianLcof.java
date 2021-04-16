@@ -63,6 +63,9 @@ package leetcode.editor.cn;
 // 👍 140 👎 0
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof{
     public static void main(String[] args) {
         Solution solution = new LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof().new Solution();
@@ -83,7 +86,14 @@ public class LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof{
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        
+        if (headA == null || headB == null) return null;
+        ListNode tempA = headA;
+        ListNode tempB = headB;
+        while(tempA != tempB){
+              tempA = tempA == null ? headB : tempA.next;
+              tempB = tempB == null ? headA : tempB.next;
+        }
+        return tempA;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
