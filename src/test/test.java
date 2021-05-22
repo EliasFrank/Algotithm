@@ -5,7 +5,27 @@ import java.util.PriorityQueue;
 
 public class test {
     public static void main(String[] args) {
-        test2();
+        test5();
+    }
+
+    private static void test5() {
+        String s = "[a]";
+    }
+
+    private static void test4() {
+        double v = Double.parseDouble("-123 ");
+        System.out.println(v);
+    }
+
+    private static int test3(int a, int b) {
+
+        while (a != 0) {
+            int temp = 0;
+            temp = (a & b) << 1;
+            b = (a ^ b);
+            a = temp;
+        }
+        return b;
     }
 
     private static void test2() {
