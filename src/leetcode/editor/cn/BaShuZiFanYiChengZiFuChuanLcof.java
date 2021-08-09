@@ -31,21 +31,21 @@ public class BaShuZiFanYiChengZiFuChuanLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int translateNum(int num) {
-        if (num == 0) return 1;
+        if (num < 10) return 1;
         int a = 1;
         int b = 1;
-        int c = 1;
-        while (num > 0) {
-            if ((num % 100) > 25 || (num % 100) < 10) {
-                c = b;
+        int count = 0;
+        do {
+            int pre = num % 100;
+            if (pre >= 10 && pre <= 25) {
+                count = a + b;
             } else {
-                c = b + a;
+                count = a;
             }
-            a = b;
-            b = c;
-            num /= 10;
-        }
-        return c;
+            b = a;
+            a = count;
+        } while ((num /= 10) != 0);
+        return count;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

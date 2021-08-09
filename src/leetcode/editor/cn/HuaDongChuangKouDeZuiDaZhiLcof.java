@@ -36,7 +36,7 @@ public class HuaDongChuangKouDeZuiDaZhiLcof{
     public static void main(String[] args) {
         Solution solution = new HuaDongChuangKouDeZuiDaZhiLcof().new Solution();
         int[] nums = {1,3,-1,-3,5,3,6,7};
-        int k = 8;
+        int k = 3;
         int[] ints = solution.maxSlidingWindow(nums, k);
         for (int i = 0; i < ints.length; i++) {
             System.out.println(ints[i]);
@@ -47,26 +47,27 @@ public class HuaDongChuangKouDeZuiDaZhiLcof{
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length == 0) return new int[0];
-        Deque<Integer> deque = new LinkedList<>();
         int[] result = new int[nums.length - k + 1];
+        Deque<Integer> queue = new LinkedList();
         for (int i = 0; i < k; i++) {
-            while (deque.peekLast() != null && deque.peekLast() < nums[i]) {
-                deque.pollLast();
-            }
-            deque.offer(nums[i]);
-        }
-        result[0] = deque.peekFirst();
 
-        for (int i = 1; i < nums.length - k + 1; i++) {
-            if (deque.peekFirst() == nums[i - 1]) {
-                deque.pollFirst();
+            while (queue.peekLast() != null && queue.peekLast() < nums[i]) {
+                queue.pollLast();
             }
-            while (deque.peekLast() != null && deque.peekLast() < nums[i + k - 1]) {
-                deque.pollLast();
-            }
-            deque.offer(nums[i + k - 1]);
-            result[i] = deque.peekFirst();
+            queue.offer(nums[i]);
         }
+
+        for (int i = 0; i < result.length - 1; i++) {
+            result[i] = queue.peekFirst();
+            if (queue.peekFirst() == nums[i]) {
+                queue.pollFirst();
+            }
+            while (queue.peekLast() != null && queue.peekLast() < nums[i + k]) {
+                queue.pollLast();
+            }
+            queue.offer(nums[i + k]);
+        }
+        result[result.length - 1] = queue.peekFirst();
         return result;
     }
 }

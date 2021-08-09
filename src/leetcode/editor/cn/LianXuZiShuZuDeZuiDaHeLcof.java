@@ -31,22 +31,25 @@ package leetcode.editor.cn;
 public class LianXuZiShuZuDeZuiDaHeLcof{
     public static void main(String[] args) {
         Solution solution = new LianXuZiShuZuDeZuiDaHeLcof().new Solution();
-        
+        int i = solution.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4});
+        System.out.println(i);
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxSubArray(int[] nums) {
-        int pre = 0;
-        int max = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            if ((pre + nums[i]) < nums[i]){
+        if (nums == null || nums.length == 0) return Integer.MIN_VALUE;
+        int pre = nums[0];
+        int max = pre;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > (nums[i] + pre)) {
                 pre = nums[i];
-            }else {
-                pre = pre + nums[i];
+            } else {
+                pre = nums[i] + pre;
             }
-            if(max < pre)
+            if (max < pre) {
                 max = pre;
+            }
         }
         return max;
     }

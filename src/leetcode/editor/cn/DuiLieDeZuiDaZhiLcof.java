@@ -38,35 +38,44 @@ import java.util.*;
 public class DuiLieDeZuiDaZhiLcof{
     public static void main(String[] args) {
 //        Solution solution = new DuiLieDeZuiDaZhiLcof().new Solution();
-        
+        MaxQueue maxQueue = new DuiLieDeZuiDaZhiLcof().new MaxQueue();
+        maxQueue.push_back(1);
+        maxQueue.push_back(2);
+        System.out.println(maxQueue.max_value());
+        System.out.println(maxQueue.pop_front());
+        System.out.println(maxQueue.max_value());
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class MaxQueue {
-    private Queue<Integer> queue;
-    private Deque<Integer> deque;
+
+    Deque<Integer> queue;
+    Deque<Integer> max;
+
     public MaxQueue() {
-        queue = new LinkedList<>();
-        deque = new LinkedList<>();
+        queue = new LinkedList();
+        max = new LinkedList();
     }
-    
+
     public int max_value() {
-        return deque.isEmpty() ? -1 : deque.peekFirst();
+        return max.isEmpty() ? -1 : max.peekFirst();
     }
-    
+
     public void push_back(int value) {
         queue.offer(value);
-        while (!deque.isEmpty() && deque.peekLast() < value) {
-            deque.pollLast();
+        while (!max.isEmpty() && max.peekLast() < value) {
+            max.pollLast();
         }
-        deque.offerLast(value);
+        max.offerLast(value);
     }
-    
+
     public int pop_front() {
         if (queue.isEmpty()) return -1;
-        if (queue.peek().equals(deque.peekFirst()))
-            deque.pollFirst();
-        return queue.poll();
+        int tmp  = queue.pollFirst();
+        if (max.peekFirst() != null && max.peekFirst() == tmp) {
+            max.pollFirst();
+        }
+        return tmp;
     }
 }
 

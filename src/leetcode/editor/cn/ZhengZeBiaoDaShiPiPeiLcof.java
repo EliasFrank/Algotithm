@@ -66,8 +66,23 @@ public class ZhengZeBiaoDaShiPiPeiLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isMatch(String s, String p) {
-        boolean matches = s.matches(p);
-        return matches;
+        int m = s.length() + 1;
+        int n = p.length() + 1;
+        boolean[][] dp = new boolean[m][n];
+        dp[0][0] = true;
+
+        for (int i = 2; i < n; i += 2) {
+            dp[0][i] = dp[0][i - 2] && p.charAt(i - 1) == '*';
+        }
+
+//        for (int i = 0; i < m; i++) {
+//            for (int j = 0; j < n; j++) {
+//                if (p.charAt(j - 1) == '*') {
+//                    if ()
+//                }
+//            }
+//        }
+        return dp[m - 1][n - 1];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

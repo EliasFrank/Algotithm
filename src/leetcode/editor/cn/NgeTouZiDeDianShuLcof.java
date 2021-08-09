@@ -43,16 +43,17 @@ public class NgeTouZiDeDianShuLcof{
 class Solution {
     public double[] dicesProbability(int n) {
         double[] dp = new double[6];
-        Arrays.fill(dp, 1.0 / 6.0);
-
-        for (int i = 2; i <= n; i++) {
-            double[] temp = new double[5 * i + 1];
-            for (int j = 0; j < dp.length; j++){
-                for (int k = 0; k < 6; k++) {
-                    temp[k + j] += dp[j] / 6.0;
+        for (int i = 0; i < dp.length; i++) {
+            dp[i] = 1.0 / 6.0;
+        }
+        for (int cur = 2; cur <= n; cur++) {
+            double[] result = new double[(5 * cur) + 1];
+            for (int i = 0; i < dp.length; i++) {
+                for (int j = 0; j < 6; j++) {
+                    result[i + j] += dp[i] / 6.0;
                 }
             }
-            dp = temp;
+            dp = result;
         }
         return dp;
     }

@@ -25,13 +25,14 @@ package leetcode.editor.cn;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ZiFuChuanDePaiLieLcof{
     public static void main(String[] args) {
         Solution solution = new ZiFuChuanDePaiLieLcof().new Solution();
-        String[] permutation = solution.permutation("1233");
+        String[] permutation = solution.permutation("122");
         for (String s : permutation) {
             System.out.println(s);
         }
@@ -44,6 +45,7 @@ class Solution {
         if (s == null || s.length() == 0) return null;
         char[] chars = s.toCharArray();
         find(chars, 0);
+
         return list.toArray(String[]::new);
     }
 

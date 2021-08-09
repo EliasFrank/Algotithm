@@ -46,7 +46,8 @@ import java.util.Map;
 public class ZuiChangBuHanZhongFuZiFuDeZiZiFuChuanLcof{
     public static void main(String[] args) {
         Solution solution = new ZuiChangBuHanZhongFuZiFuDeZiZiFuChuanLcof().new Solution();
-        
+        int abac = solution.lengthOfLongestSubstring("abcba");
+        System.out.println(abac);
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)

@@ -40,55 +40,29 @@ import java.util.ArrayList;
 public class ErChaSouSuoShuYuShuangXiangLianBiaoLcof{
     public static void main(String[] args) {
         Solution solution = new ErChaSouSuoShuYuShuangXiangLianBiaoLcof().new Solution();
-        
+        Node root = new Node(4);
+        root.right = new Node(5);
+        root.left = new Node(2);
+        root.left.left = new Node(1);
+        root.left.right = new Node(3);
+        Node node = solution.treeToDoublyList(root);
+        print(node);
+    }
+    public static void print(Node root) {
+        while (root != null) {
+            System.out.println(root.val);
+            root = root.right;
+        }
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
-/*
-// Definition for a Node. 
-class Node {
-    public int val;
-    public Node left;
-    public Node right;
-
-    public Node() {}
-
-    public Node(int _val) {
-        val = _val;
-    }
-
-    public Node(int _val,Node _left,Node _right) {
-        val = _val;
-        left = _left;
-        right = _right;
-    }
-};
-*/
 class Solution {
-
-    Node pre, head;
     public Node treeToDoublyList(Node root) {
-        if (root == null) return null;
-
-        dfs(root);
-        head.left = pre;
-        pre.right = head;
-        return head;
-    }
-    private void dfs(Node root) {
-        if (root == null) return;
-        dfs(root.left);
-        if (pre == null)
-            head = root;
-        else
-            pre.right = root;
-
-        root.left = pre;
-        pre = root;
-        dfs(root.right);
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
+}
 class Node {
     public int val;
     public Node left;
@@ -106,4 +80,3 @@ class Node {
         right = _right;
     }
 };
-}

@@ -62,48 +62,16 @@ public class ErChaShuDeZuiJinGongGongZuXianLcof{
  * }
  */
 class Solution {
-
-    Map<Integer, TreeNode> hashMap = new HashMap<>();
-    Set<Integer> set = new HashSet<>();
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        dfs(root);
-
-        while (p != null) {
-            set.add(p.val);
-            p = hashMap.get(p.val);
-        }
-        while (q != null) {
-            if (set.contains(q.val)) {
-                return q;
-            }
-            q = hashMap.get(q.val);
-        }
-        return null;
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left == null)
+            return right;
+        if (right == null)
+            return left;
+        return root;
     }
-
-    private void dfs(TreeNode root) {
-        if (root.left != null) {
-            hashMap.put(root.left.val, root);
-            dfs(root.left);
-        }
-
-        if (root.right != null) {
-            hashMap.put(root.right.val, root);
-            dfs(root.right);
-        }
-    }
-
-    /*private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) return false;
-        boolean lb = dfs(root.left, p, q);
-        boolean rb = dfs(root.right, p, q);
-
-        if ((lb && rb) || ((root.val == p.val || root.val == q.val) && (lb || rb)))
-            result = root;
-
-        return lb || rb || (root.val == p.val || root.val == q.val);
-    }*/
 }
 //leetcode submit region end(Prohibit modification and deletion)
-
 }

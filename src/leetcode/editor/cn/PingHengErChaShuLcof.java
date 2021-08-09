@@ -72,7 +72,7 @@ class Solution {
             return true;
         find(root, 0);
         return isBalanced;*/
-        return bfs(root) == -1 ? false : true;
+        return bfs(root) != -1;
     }
 
     private int bfs(TreeNode root) {
@@ -82,7 +82,7 @@ class Solution {
         if (left == -1 ) return -1;
         int right = bfs(root.right);
         if (right == -1) return -1;
-        return Math.abs(left - right) > 1 ? -1 : Math.max(left, right) + 1;
+        return Math.abs(left - right) > 1 ? -1 : Math.  max(left, right) + 1;
     }
 
 /*

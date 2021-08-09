@@ -42,6 +42,10 @@ package leetcode.editor.cn;
 
 import hl2020_09_25.TreeNode;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class DuiChengDeErChaShuLcof{
     public static void main(String[] args) {
         Solution solution = new DuiChengDeErChaShuLcof().new Solution();
