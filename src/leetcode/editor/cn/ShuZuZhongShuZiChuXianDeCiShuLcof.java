@@ -36,22 +36,21 @@ public class ShuZuZhongShuZiChuXianDeCiShuLcof{
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] singleNumbers(int[] nums) {
-        int res = 0;
-        for (int i = 0; i < nums.length; i++) {
-            res ^= nums[i];
-        }
-        int div = 1;
-        while ((div & res) == 0)
-            div <<= 1;
-
         int a = 0;
-        int b = 0;
         for (int i = 0; i < nums.length; i++) {
-            if ((div & nums[i]) == 0)
-                a ^= nums[i];
-            else b ^= nums[i];
+            a ^= nums[i];
         }
-        return new int[] {a, b};
+        int left = 0;
+        int right = 0;
+        int tmp = 1;
+        while ((tmp & a) == 0)
+            tmp <<= 1;
+        for (int i = 0; i < nums.length; i++) {
+            if((nums[i] & tmp) == 0)
+                left ^= nums[i];
+            else right ^= nums[i];
+        }
+        return new int[]{left, right};
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

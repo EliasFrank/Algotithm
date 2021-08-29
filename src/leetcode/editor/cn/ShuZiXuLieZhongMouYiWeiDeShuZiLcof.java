@@ -52,8 +52,7 @@ class Solution {
         }
         long num = start + (n -1) / digit;
         int loc = (n - 1) % digit;
-        int pow = (int)Math.pow(10, digit - loc - 1);
-        num /= pow;
+        num /= (int)Math.pow(10, digit - loc - 1);
         return (int)num % 10;
     }
 }

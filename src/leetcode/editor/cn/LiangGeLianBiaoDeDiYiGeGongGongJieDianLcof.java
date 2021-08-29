@@ -69,7 +69,17 @@ import java.util.Set;
 public class LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof{
     public static void main(String[] args) {
         Solution solution = new LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof().new Solution();
-        
+        ListNode a = new ListNode(4);
+        a.next = new ListNode(1);
+        a.next.next = new ListNode(8);
+        a.next.next.next = new ListNode(4);
+
+        ListNode b = new ListNode(5);
+        b.next = new ListNode(0);
+        b.next.next = new ListNode(1);
+        b.next.next.next = a.next.next;
+        ListNode intersectionNode = solution.getIntersectionNode(a, b);
+        System.out.println(intersectionNode.val);
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
@@ -84,7 +94,51 @@ public class LiangGeLianBiaoDeDiYiGeGongGongJieDianLcof{
  *     }
  * }
  */
-public class Solution {
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) {
+     *         val = x;
+     *         next = null;
+     *     }
+     * }
+     */
+    public class Solution {
+        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            ListNode a = headA;
+            ListNode b = headB;
+            int la = 0;
+            int lb = 0;
+            while (a != null) {
+                la++;
+                a = a.next;
+            }
+            while (b != null) {
+                lb++;
+                b = b.next;
+            }
+
+            if (la > lb) {
+                int gap = la - lb;
+                for (int i = gap; i > 0; i--) {
+                    headA = headA.next;
+                }
+            } else {
+                int gap = lb - la;
+                for (int i = gap; i > 0; i--) {
+                    headB = headB.next;
+                }
+            }
+            while (headA != null && headA != headB) {
+                headA = headA.next;
+                headB = headB.next;
+            }
+            return headA ;//== null ? new ListNode(0) : headA;
+        }
+    }
+/*public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
         ListNode tempA = headA;
@@ -95,7 +149,7 @@ public class Solution {
         }
         return tempA;
     }
-}
+}*/
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

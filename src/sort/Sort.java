@@ -2,12 +2,6 @@ package sort;
 
 import java.util.Arrays;
 
-/**
- * 堆排序：
- * 将数组建立成一个完全二叉树，然后不断将其建立成大顶堆
- * 将第一个元素与最后一个元素交换位置，即把最大的数移到最后
- * 然后对前面的数在进行上诉操作
- * */
 public class Sort {
     public static void main(String[] args) {
         int[] nums = {1,6,3,4,2,1,5,3,7,2};
@@ -59,7 +53,6 @@ public class Sort {
 
         quickSort(nums, left, start - 1);
         quickSort(nums, start + 1, right);
-
     }
 
 

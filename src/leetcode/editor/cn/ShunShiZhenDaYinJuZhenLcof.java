@@ -31,56 +31,56 @@ package leetcode.editor.cn;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ShunShiZhenDaYinJuZhenLcof{
     public static void main(String[] args) {
         Solution solution = new ShunShiZhenDaYinJuZhenLcof().new Solution();
-        int[][] nums = {{1,2,3},{4,5,6},{7,8,9}};
-        solution.spiralOrder(nums);
+//        int[][] nums = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] nums = new int[0][0];
+        int[] ints = solution.spiralOrder(nums);
+        for (int i = 0; i < ints.length; i++) {
+            System.out.print(ints[i] + " ");
+        }
+
     }
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-
     public int[] spiralOrder(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return new int[0];
-        }
-        int left = 0;
-        int right = matrix[0].length - 1;
-        int top = 0;
-        int bottom = matrix.length - 1;
-        int[] result = new int[(right + 1) * (bottom + 1)];
-        int num = 0;
+//        if (matrix.length == 0) return new int[0];
 
-        while (true){
-            for (int i = left; i <= right; i++) {
-                result[num++] = matrix[top][i];
-            }
-            if(++top > bottom){
-                break;
-            }
-            for (int i = top; i <= bottom; i++) {
-                result[num++] = matrix[i][right];
-            }
-            if(--right < left){
-                break;
-            }
-            for (int i = right; i >= left; i--) {
-                result[num++] = matrix[bottom][i];
-            }
-            if(--bottom < top){
-                break;
-            }
-            for (int i = bottom; i >= top; i--) {
-                result[num++] = matrix[i][left];
-            }
-            if(++left > right){
-                break;
-            }
+        LinkedList list = new LinkedList();
+
+        if(matrix.length == 0 && matrix[0].length == 0)
+            return new int[0];
+
+        int row = matrix.length;
+        int col = matrix[0].length;
+
+        int a = 0, b = col - 1, c = row - 1, d = 0;
+        int[] res = new int[row*col];
+        int index = 0;
+
+        while(true) {
+            for (int i = d; i <= b; i++)
+                res[index++] = matrix[a][i];
+            if (++a > c) break;
+
+            for (int i = a; i <= c; i++)
+                res[index++] = matrix[i][b];
+            if (--b < d) break;
+
+            for (int i = b; i >= d; i--)
+                res[index++] = matrix[c][i];
+            if (--c < a) break;
+
+            for (int i = c; i >= a; i--)
+                res[index++] = matrix[i][d];
+            if (++d > b) break;
         }
-        return result;
+        return res;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
