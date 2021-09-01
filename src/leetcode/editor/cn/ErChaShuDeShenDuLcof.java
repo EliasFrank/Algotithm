@@ -28,7 +28,7 @@ package leetcode.editor.cn;
 // 👍 98 👎 0
 
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 public class ErChaShuDeShenDuLcof{
     public static void main(String[] args) {

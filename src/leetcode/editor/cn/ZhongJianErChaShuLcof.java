@@ -34,12 +34,9 @@ package leetcode.editor.cn;
 // 👍 519 👎 0
 
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 public class ZhongJianErChaShuLcof{
     public static void main(String[] args) {

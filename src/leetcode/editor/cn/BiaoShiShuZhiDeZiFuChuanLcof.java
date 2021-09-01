@@ -8,8 +8,6 @@ package leetcode.editor.cn;
 // 👍 182 👎 0
 
 
-import hl2020_09_16.DoubelPower;
-
 import java.util.HashMap;
 import java.util.Map;
 

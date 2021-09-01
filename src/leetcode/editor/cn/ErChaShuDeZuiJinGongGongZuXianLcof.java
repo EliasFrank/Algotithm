@@ -40,10 +40,7 @@ package leetcode.editor.cn;
 // 👍 173 👎 0
 
 
-import hl2020_09_25.TreeNode;
-
-import javax.print.DocFlavor;
-import java.util.*;
+import day.hl2020_09_25.TreeNode;
 
 public class ErChaShuDeZuiJinGongGongZuXianLcof{
     public static void main(String[] args) {

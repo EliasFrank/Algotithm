@@ -39,10 +39,8 @@ package leetcode.editor.cn;
 // 👍 183 👎 0
 
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 

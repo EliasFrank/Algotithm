@@ -35,7 +35,7 @@ package leetcode.editor.cn;
 // 👍 133 👎 0
 
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 public class ErChaSouSuoShuDeDiKdaJieDianLcof{
     public static void main(String[] args) {

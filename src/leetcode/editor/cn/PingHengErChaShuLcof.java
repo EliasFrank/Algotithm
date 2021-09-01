@@ -48,7 +48,7 @@ package leetcode.editor.cn;
 // 👍 124 👎 0
 
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 public class PingHengErChaShuLcof{
     public static void main(String[] args) {

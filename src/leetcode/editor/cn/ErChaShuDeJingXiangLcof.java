@@ -35,7 +35,7 @@ package leetcode.editor.cn;
 // Related Topics 树 
 // 👍 83 👎 0
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 public class ErChaShuDeJingXiangLcof{
     public static void main(String[] args) {

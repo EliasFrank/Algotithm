@@ -37,7 +37,7 @@ package leetcode.editor.cn;
 // 👍 66 👎 0
 
 
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

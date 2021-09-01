@@ -37,10 +37,7 @@ package leetcode.editor.cn;
 // 👍 269 👎 0
 
 
-import com.sun.source.tree.Tree;
-import hl2020_09_25.TreeNode;
-
-import java.util.ArrayList;
+import day.hl2020_09_25.TreeNode;
 
 public class ShuDeZiJieGouLcof{
     public static void main(String[] args) {

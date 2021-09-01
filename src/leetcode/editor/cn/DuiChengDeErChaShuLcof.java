@@ -40,11 +40,7 @@ package leetcode.editor.cn;
 // Related Topics 树 
 // 👍 102 👎 0
 
-import hl2020_09_25.TreeNode;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import day.hl2020_09_25.TreeNode;
 
 public class DuiChengDeErChaShuLcof{
     public static void main(String[] args) {

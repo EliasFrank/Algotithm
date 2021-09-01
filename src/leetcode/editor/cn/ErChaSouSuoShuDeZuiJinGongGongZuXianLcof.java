@@ -39,11 +39,7 @@ package leetcode.editor.cn;
 // 👍 81 👎 0
 
 
-import hl2020_09_25.TreeNode;
-
-import javax.swing.table.TableRowSorter;
-import java.util.ArrayList;
-import java.util.List;
+import day.hl2020_09_25.TreeNode;
 
 public class ErChaSouSuoShuDeZuiJinGongGongZuXianLcof{
     public static void main(String[] args) {

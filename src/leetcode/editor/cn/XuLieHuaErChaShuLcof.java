@@ -25,8 +25,7 @@ package leetcode.editor.cn;
 // 👍 166 👎 0
 
 
-import com.sun.source.tree.Tree;
-import hl2020_09_25.TreeNode;
+import day.hl2020_09_25.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
